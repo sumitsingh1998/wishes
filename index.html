@@ -177,6 +177,22 @@ h1 {
 @keyframes pulse {
     50% { transform: scale(1.3) }
 }
+/* START BUTTON */
+#startBtn {
+    margin-top: 30px;
+    padding: 15px 40px;
+    border: 2px solid gold;
+    background: rgba(255,215,0,0.2);
+    color: gold;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: 0.4s;
+}
+#startBtn:hover {
+    background: gold;
+    color: #000;
+}
 </style>
 </head>
 
@@ -185,11 +201,11 @@ h1 {
 <!-- INTRO -->
 <div class="container intro">
     <p>DEC 31, 2025</p>
-    <h1 style="color:#ffb7c5;">My Dearest Love...</h1>
+    <h1>My Dearest Love...</h1>
     <div class="love-letter">
         "Before the year ends, I wanted to tell you that you've been my favorite part of 2025. Now, let's step into your special day together."
     </div>
-    <a href="#birthday" class="btn">ENTER JANUARY 1ST ➔</a>
+    <button id="startBtn">TOUCH ME BABY HARD ➔</button>
 </div>
 
 <!-- BIRTHDAY -->
@@ -229,11 +245,12 @@ h1 {
         "A new year means 365 more days of loving you,
         Of choosing you in every sunrise and every storm.
         If time is a gift, then loving you is how I spend it.
-        Let’s begin this year the way I want to live it—together."
+        Let’s begin this year the way I want to live it—together..."
     </div>
     <button class="btn" onclick="showKiss()">CLAIM YOUR HUG & KISS ❤️</button>
 </div>
-
+<!-- AUDIO -->
+<audio id="bgMusic" src="celebration.mp3" loop></audio>
 <div id="overlay" class="overlay" onclick="hideKiss()"></div>
 <div id="kiss-container">
     <div id="boy" class="character">👦🏻</div>
@@ -343,6 +360,11 @@ function hideKiss() {
     kc.style.display = 'none';
 }
 window.addEventListener('load', startFireworks);
+/* START BUTTON - PLAY MUSIC & ENTER */
+document.getElementById('startBtn').addEventListener('click', () => {
+    document.getElementById('bgMusic').play(); // start music
+    document.getElementById('birthday').scrollIntoView({ behavior: 'smooth' }); // scroll smoothly
+});
 </script>
 
 </body>
